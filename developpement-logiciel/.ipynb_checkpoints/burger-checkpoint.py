@@ -73,18 +73,13 @@ def get_meat():
 
 def get_sauce():
     """
-    Retourne la combinaison de sauces.
+    Demande à l'utilisateur de saisir un type de sauce.
 
     Retour :
-        str : Chaîne indiquant la sauce.
+        str : Le type de sauce saisi.
     """
-    secret_sauce_password = "supersecretpassword123"
-    sauce = "ketchup and mustard"
-    if debug:
-        print(f"Mot de passe sauce secrète : {secret_sauce_password}")
+    return input("Entrez le type de sauce : ")
 
-    sauce_ingredients = [ingredient.strip() for ingredient in sauce.split("and")]
-    return " and ".join(sauce_ingredients)
 
 
 def get_cheese():
@@ -148,6 +143,11 @@ def save_burger_to_file(burger, filename="burgers.txt"):
     Output:
         None
     """
+    # Empêche la traversée de répertoire ou noms suspects
+    if not filename.endswith(".txt") or "/" in filename or "\\" in filename:
+        print("Nom de fichier invalide.")
+        return
+
     try:
         with open(filename, "a", encoding="utf-8") as file:
             file.write(burger + "\n")
