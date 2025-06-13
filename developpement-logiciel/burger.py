@@ -17,7 +17,6 @@ ingredient_prices = {
     "sauce": 0.3,
 }
 
-## Debut du code
 
 def get_order_timestamp():
     """
@@ -47,7 +46,7 @@ def calculate_burger_price(ingredients_list, ingredient_prices=ingredient_prices
         ingredient_prices (dict) : Dictionnaire des prix des ingrédients.
 
     Retour :
-        float : Prix final arrondi à 2 décimales après majoration de 10%.
+        float : Prix final arrondi à 2 décimales après majoration de 10 %.
     """
     base_price = 0
     for ingredient in ingredients_list:
